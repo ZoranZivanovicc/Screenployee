@@ -13,10 +13,7 @@ import java.net.MalformedURLException;
 import java.net.URL;
 import java.util.concurrent.TimeUnit;
 
-/**
- * @version 1.0.5 date:10.05.2016 Use to instantiate driver local or remote
- *
- */
+
 public class DriverFactory {
 
 

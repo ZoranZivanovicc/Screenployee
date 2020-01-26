@@ -1,10 +1,6 @@
 package enums;
 
-/**
- * Enumeration used for users which used for login to tmOne portal
- *
- * @version 1.0.0 date:10.05.2016
- */
+
 public enum Users {
   // username
   VALIDREGISTERUSER("newray2"), INVALIDREGISTERUSER("tom"), VALIDLOGINUSER("newray2"), INVALIDLOGINUSER("tom"), SPECCHARUSER(";';';'"),

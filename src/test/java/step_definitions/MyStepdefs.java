@@ -30,11 +30,7 @@ public class MyStepdefs {
     public void iChooseToRegisterWithAAndEmail(String typeOfAction, String userName, String email) {
         loginPage.registerOrLogin(userName,email);
         loginPage.clickOnSignUp();
-        try {
-            Thread.sleep(5000);
-        } catch (InterruptedException e) {
-            e.printStackTrace();
-        }
+
 
     }
 

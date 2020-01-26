@@ -16,9 +16,7 @@ public class Wait {
   static String pageLoadStatus = null;
   WebDriver driver = DriverFactory.getDriver();
   WebDriverWait wait = new WebDriverWait(driver, 45);
-  FluentWait<WebDriver> fluentWait =
-      new FluentWait<WebDriver>(driver).withTimeout(45, TimeUnit.SECONDS)
-          .pollingEvery(100, TimeUnit.MILLISECONDS).ignoring(ElementNotInteractableException.class);
+
   Actions actions = new Actions(driver);
 
   /**
@@ -93,10 +91,7 @@ public class Wait {
    * @param element
    */
 
-  public void ggf(WebElement element) {
 
-    fluentWait.until(ExpectedConditions.elementToBeClickable(element));
-  }
 
 
   public void click(WebElement element) {
