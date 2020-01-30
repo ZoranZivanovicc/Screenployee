@@ -2,16 +2,16 @@ package web_pages;
 
 import enums.Url;
 import enums.Users;
+import org.junit.Assert;
 import org.openqa.selenium.By;
 import org.openqa.selenium.WebDriver;
 import org.openqa.selenium.WebElement;
 import org.openqa.selenium.support.FindBy;
 import org.openqa.selenium.support.PageFactory;
 import org.openqa.selenium.support.ui.LoadableComponent;
-import org.testng.Assert;
-import org.testng.asserts.SoftAssert;
 import utils.DriverFactory;
 import utils.Wait;
+
 
 /**
  * Implemented with Page Object and Page factory model this class consist of web elements and
@@ -27,7 +27,7 @@ import utils.Wait;
 public class LoginPage extends LoadableComponent<LoginPage> {
     WebDriver driver = DriverFactory.getDriver();
     Wait wait = new Wait();
-    SoftAssert softAssert = new SoftAssert();
+   // SoftAssert softAssert = new SoftAssert();
     private String title = "test";
 
 
@@ -70,7 +70,7 @@ public class LoginPage extends LoadableComponent<LoginPage> {
     @Override
     protected void isLoaded() throws Error {
 
-        Assert.assertTrue(driver.getTitle().equals("fff"), "Login page not loaded");
+       Assert.assertTrue("Login page not loaded", driver.getTitle().equals("fff"));
 
     }
     @Override
@@ -81,11 +81,11 @@ public class LoginPage extends LoadableComponent<LoginPage> {
     public void getPage(String url){
         if(url.equalsIgnoreCase("SCREENPLOYEELOGIN")){
             getLoginPage(url);
-            Assert.assertEquals(btnSignIn.getText(),"Sign In","This is not Sign in page please check the value of the page");
+            //Assert.assertEquals(btnSignIn.getText(),"Sign In","This is not Sign in page please check the value of the page");
         }
         else if (url.equalsIgnoreCase("SCREENPLOYEEREGISTER")){
             getRegisterPage();
-            Assert.assertEquals(btnSignIn.getText(),"Sign Up","This is not Sign up page please check the value of the page");
+            Assert.assertEquals("This is not Sign up page please check the value of the page",btnSignIn.getText(),"Sign Up");
 
         }
         else {
@@ -139,7 +139,8 @@ public class LoginPage extends LoadableComponent<LoginPage> {
     public void checkErrorMessage(String errorMessage){
         WebElement error = driver.findElement(By.xpath("//p[contains(text()," +"'"+ errorMessage+"'" +")]"));
         wait.forTextPresentInElement(error,errorMessage);
-        Assert.assertEquals(error.getText() ,errorMessage,"Error message is not the same");
+       Assert.assertEquals(error.getText(), errorMessage,"Error message is not the same");
+       Assert.assertEquals("Error message is not the same", error.getText(), errorMessage);
     }
 
 

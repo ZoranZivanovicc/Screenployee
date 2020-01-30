@@ -1,10 +1,11 @@
+
 Feature: Testing register functionality
   As a qa
   I want to check positive and negative cases regarding with register
 
   Background:
     Given The system shows "SCREENPLOYEEREGISTER" page
-
+  @jjjj
  Scenario Outline: Can register a new account
 
     When I choose to "register" with a "<UserName>" and "<Email>"
