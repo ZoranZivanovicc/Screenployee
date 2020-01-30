@@ -27,5 +27,5 @@ import io.cucumber.testng.CucumberOptions;
 
 )
 
-public class CucumberRunner {
+public class TestRunner {
 }
