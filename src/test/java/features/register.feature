@@ -1,11 +1,11 @@
-
+@user_register @regression
 Feature: Testing register functionality
   As a qa
   I want to check positive and negative cases regarding with register
 
   Background:
     Given The system shows "SCREENPLOYEEREGISTER" page
-  @jjjj
+ @positivecasses
  Scenario Outline: Can register a new account
 
     When I choose to "register" with a user with "<RandomString>" and "<Email>"
@@ -19,19 +19,19 @@ Feature: Testing register functionality
      | RANDOM_NUMBERS_STRING                     | @acme.com      |
      | RANDOM_STRINGS_AND_NUMBERS                | @acme.com      |
 
-
+@negativecasses
   Scenario Outline: Can't register a new account
     When I choose to register with a "<UserName>" and "<Email>"
     Then "<ErrorMessage>" displayed
 
 
     Examples:
-      | UserName                                  | Email              |ErrorMessage                  |
-      | VALIDREGISTERUSER                         |  ray@acme.com      | That e-mail already exists   |
-      | VALIDREGISTERUSER                         | valid@acme.com     | That username already exists|
-      | VALIDREGISTERUSER                         |                    | The email field cannot be left blank!|
+      | UserName                                  | Email              |ErrorMessage                                    |
+      | VALIDREGISTERUSER                         |  ray@acme.com      | That e-mail already exists                     |
+      | VALIDREGISTERUSER                         | valid@acme.com     | That username already exists                   |
+      | VALIDREGISTERUSER                         |                    | The email field cannot be left blank!          |
       | VALIDREGISTERUSER                         |   d                | Email format should be this format xxxx@xxx.xxx|
-      | INVALIDREGISTERUSER                       | valid@acme.com     | The password field cannot be left blank!|
+      | INVALIDREGISTERUSER                       | valid@acme.com     | The password field cannot be left blank!       |
 
 
 
