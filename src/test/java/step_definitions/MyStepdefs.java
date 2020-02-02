@@ -1,8 +1,10 @@
 package step_definitions;
 
+import io.cucumber.java.en.And;
 import io.cucumber.java.en.Given;
 import io.cucumber.java.en.Then;
 import io.cucumber.java.en.When;
+import org.junit.Assert;
 import web_pages.EmployeesPage;
 import web_pages.LoginPage;
 
@@ -61,5 +63,33 @@ public class MyStepdefs {
         loginPage.registerOrLogin(randomStringUser,randomEmail);
         loginPage.clickOnSignUp();
 
+    }
+
+
+
+
+    @And("I create a new employee with {string},{string}, {string} data value")
+    public void iCreateANewEmployeeWithDataValue(String userName, String eMail, String birthday) {
+        employeesPage.createNewEmployee();
+        employeesPage.addValueForNewEmployee(userName,eMail,birthday);
+
+    }
+
+    @Then("I can see employee with a listed value")
+    public void iCanSeeEmployeeWithAListedValue() {
+        employeesPage.openEmployeeFrame();
+        employeesPage.checkEmployeeValue();
+    }
+
+    @When("I delete employye")
+    public void iDeleteEmployye() {
+        employeesPage.deleteEmploye();
+    }
+
+
+
+    @Then("I logged out")
+    public void iLoggedOut() {
+        employeesPage.loggedOut();
     }
 }

@@ -5,6 +5,7 @@ import enums.Users;
 import org.apache.commons.lang3.EnumUtils;
 
 public class RandomString {
+
     private String randomString;
     int length;
     StringBuilder sb = new StringBuilder();
