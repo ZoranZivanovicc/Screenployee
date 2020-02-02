@@ -13,7 +13,7 @@ import java.net.MalformedURLException;
 import java.net.URL;
 import java.util.concurrent.TimeUnit;
 
-
+//This class will manage with web driver
 public class DriverFactory {
 
 

@@ -17,7 +17,7 @@ public enum RandomStrings {
     /**
      * It will return random string of selected enumaration  as a string
      *
-     * @return url
+     * @return randomString
      */
     public String getRandString() {
         return this.randString;

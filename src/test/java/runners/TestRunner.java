@@ -23,7 +23,7 @@ import org.junit.runner.RunWith;
          * desired test (for example @individualTest)NOTE: the same annotation should be inserted in
          * specific feature file
          */
-        tags = {"@user_login"  },
+        tags = {"@list_of_employees"  },
 
        plugin = {"pretty", "html:report/html/"}
 
