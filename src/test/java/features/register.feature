@@ -5,7 +5,7 @@ Feature: Testing register functionality
 
   Background:
     Given The system shows "SCREENPLOYEEREGISTER" page
- @positivecasses
+ @register_positivecasses
  Scenario Outline: Can register a new account
 
     When I choose to "register" with a user with "<RandomString>" and "<Email>"
@@ -14,12 +14,12 @@ Feature: Testing register functionality
 
    Examples:
      | RandomString                              | Email          |
-     | RANDOM_REGULAR_STRING                     | @acme.com  |
+     | RANDOM_REGULAR_STRING                     | @acme.com      |
      | RANDOM_SPEC_CHAR_STRING                   | @acme.com      |
      | RANDOM_NUMBERS_STRING                     | @acme.com      |
      | RANDOM_STRINGS_AND_NUMBERS                | @acme.com      |
 
-@negativecasses
+@register_negativecasses
   Scenario Outline: Can't register a new account
     When I choose to register with a "<UserName>" and "<Email>"
     Then "<ErrorMessage>" displayed

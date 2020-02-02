@@ -23,11 +23,11 @@ import org.junit.runner.RunWith;
          * desired test (for example @individualTest)NOTE: the same annotation should be inserted in
          * specific feature file
          */
-        tags = {"@user_login"  },
+        tags = {"@regression"  },
 
        plugin = {"pretty", "html:report/html/"}
 
 )
 
-public class TestRunner {
+public class TestRunnerRegression {
 }
