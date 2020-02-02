@@ -22,7 +22,7 @@ public class RandomString {
 
     private void createRandomString(String randomStringType, int length ){
 
-        randomString = EnumUtils.getEnum(RandomStrings.class,randomStringType).toString();
+        randomString = RandomStrings.valueOf(randomStringType.toUpperCase()).getRandString();
         for (int i =0; i < length;i++){
             int index = (int) (Math.random() * randomString.length());
             sb.append(randomString.charAt(index));

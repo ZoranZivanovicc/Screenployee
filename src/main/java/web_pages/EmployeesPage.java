@@ -50,8 +50,9 @@ public class EmployeesPage  extends LoadableComponent<EmployeesPage> {
 
     }
     public void employeePageIsVisible(String page){
-        String url = driver.getCurrentUrl();
+
         wait.forTextPresentInElement(headAllEmployees,"All Employees");
+        String url = driver.getCurrentUrl();
         Assert.assertEquals("Url doesn't mach with employees page", Url.valueOf(page.toUpperCase()).getUrl(),url);
     }
 }

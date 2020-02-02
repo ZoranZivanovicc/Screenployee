@@ -1,7 +1,9 @@
 package web_pages;
 
+import enums.RandomStrings;
 import enums.Url;
 import enums.Users;
+import org.apache.commons.lang3.EnumUtils;
 import org.junit.Assert;
 import org.openqa.selenium.By;
 import org.openqa.selenium.WebDriver;
@@ -10,6 +12,7 @@ import org.openqa.selenium.support.FindBy;
 import org.openqa.selenium.support.PageFactory;
 import org.openqa.selenium.support.ui.LoadableComponent;
 import utils.DriverFactory;
+import utils.RandomString;
 import utils.Wait;
 
 
@@ -110,9 +113,13 @@ public class LoginPage extends LoadableComponent<LoginPage> {
 
     public void registerOrLogin(String userName, String email){
         System.out.println(btnSignIn.getText());
+        //If test find that is a sign in page it will send parameters without email for sign in
         if (btnSignIn.getText().trim().equalsIgnoreCase("sign in")) {
             signInUp(userName);
-        } else {
+        }
+        //If auto test go to else it will be sign up page and it will send parameters with email for sign up
+        else {
+
             signInUp(userName, email);
         }
     }
@@ -129,8 +136,10 @@ public class LoginPage extends LoadableComponent<LoginPage> {
         txtFldPassword.sendKeys(Users.valueOf(userName.toUpperCase() + "pass".toUpperCase()).getUserParams());
     }
     private void signInUp(String userName,String email)  {
-        signInUp(userName);
-        txtFldEmail.sendKeys(email);
+        RandomString userRandomName = new RandomString(userName,5);
+        txtFldUserName.sendKeys(userRandomName.getRandomString());
+        txtFldEmail.sendKeys(userRandomName.getRandomString() + email);
+        txtFldPassword.sendKeys(EnumUtils.getEnum(Users.class,"VALIDREGISTERUSERPASS").toString());
     }
 
     public void clickOnSignUp(){

@@ -10,12 +10,12 @@ public enum RandomStrings {
 
     private String randString;
 
-    private RandomStrings(String envUrl) {
+    private RandomStrings(String randString) {
         this.randString = randString;
     }
 
     /**
-     * It will return url of selected enumaration url page as a string
+     * It will return random string of selected enumaration  as a string
      *
      * @return url
      */
