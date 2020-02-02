@@ -16,6 +16,9 @@ public class EmployeesPage  extends LoadableComponent<EmployeesPage> {
 
     WebDriver driver = DriverFactory.getDriver();
     Wait wait = new Wait();
+    private String userName;
+    private String eMail;
+    private String birthday;
 
     public EmployeesPage() {
 
@@ -27,6 +30,22 @@ public class EmployeesPage  extends LoadableComponent<EmployeesPage> {
     private WebElement btnCreateNewEmploye;
     @FindBy(xpath = "//h3[contains(text(),'All Employees')]")
     private WebElement headAllEmployees;
+    @FindBy(xpath = "//div[@class='single-employee-holder']//div[2]//input[1]")
+    private WebElement txtFieldName;
+    @FindBy(xpath = "//div[3]//input[1]")
+    private WebElement txtFieldEmail;
+    @FindBy(xpath = "//div[4]//input[1]")
+    private WebElement txtFieldBirthday;
+    @FindBy(xpath = "//div[@class='all-employees-holder']/div[1]")
+    private WebElement frameEmployee;
+    @FindBy(xpath = "//div[@class='employees-screen']//div[1]//div[1]//img[1]")
+    private WebElement icoSmiley;
+    @FindBy(xpath = "//button[contains(text(),'Add Employee')]")
+    private WebElement btnAddEmployee;
+    @FindBy(xpath = "//button[contains(text(),'Delete employee')]")
+    private WebElement btnDeleteEmployee;
+    @FindBy(xpath = "//button[contains(text(),'Sign Out')]")
+    private WebElement btnSignOut;
 
 
     // Ending page factory
@@ -55,4 +74,40 @@ public class EmployeesPage  extends LoadableComponent<EmployeesPage> {
         String url = driver.getCurrentUrl();
         Assert.assertEquals("Url doesn't mach with employees page", Url.valueOf(page.toUpperCase()).getUrl(),url);
     }
+    public void createNewEmployee(){
+        btnCreateNewEmploye.click();
+    }
+    public void addValueForNewEmployee(String userName, String eMail,String birthday){
+        this.userName = userName;
+        this.eMail = eMail;
+        this.birthday = birthday;
+        txtFieldName.sendKeys(userName);
+        txtFieldEmail.sendKeys(eMail);
+        txtFieldBirthday.sendKeys(birthday);
+        btnAddEmployee.click();
+
+    }
+    public void openEmployeeFrame(){
+        wait.forElementEnabled(icoSmiley);
+        frameEmployee.click();
+    }
+    public void checkEmployeeValue(){
+        Assert.assertEquals("Username is not the same", userName,txtFieldName.getAttribute("placeholder"));
+        Assert.assertEquals("Username is not the same", eMail,txtFieldEmail.getAttribute("placeholder"));
+        Assert.assertEquals("Username is not the same", birthday,txtFieldBirthday.getAttribute("placeholder"));
+    }
+    public void deleteEmploye(){
+        txtFieldEmail.click();
+        wait.forElementEnabled(btnDeleteEmployee);
+        btnDeleteEmployee.click();
+        try {
+            wait.waitForNumberOfSeconds(5);
+        } catch (InterruptedException e) {
+            e.printStackTrace();
+        }
+    }
+    public void loggedOut(){
+        btnSignOut.click();
+    }
+
 }

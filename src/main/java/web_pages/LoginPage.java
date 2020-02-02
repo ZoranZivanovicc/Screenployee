@@ -136,10 +136,21 @@ public class LoginPage extends LoadableComponent<LoginPage> {
         txtFldPassword.sendKeys(Users.valueOf(userName.toUpperCase() + "pass".toUpperCase()).getUserParams());
     }
     private void signInUp(String userName,String email)  {
-        RandomString userRandomName = new RandomString(userName,5);
-        txtFldUserName.sendKeys(userRandomName.getRandomString());
-        txtFldEmail.sendKeys(userRandomName.getRandomString() + email);
-        txtFldPassword.sendKeys(EnumUtils.getEnum(Users.class,"VALIDREGISTERUSERPASS").toString());
+        if(userName.contains("RANDOM")) {
+            RandomString userRandomName = new RandomString(userName,5);
+            txtFldUserName.sendKeys(userRandomName.getRandomString());
+            txtFldEmail.sendKeys(userRandomName.getRandomString() + email);
+            txtFldPassword.sendKeys(EnumUtils.getEnum(Users.class,"VALIDREGISTERUSERPASS").toString());
+        }
+        else{
+            txtFldUserName.sendKeys(Users.valueOf(userName.toUpperCase()).getUserParams());
+            txtFldPassword.sendKeys(Users.valueOf(userName.toUpperCase() + "pass".toUpperCase()).getUserParams());
+            txtFldEmail.sendKeys(email);
+
+        }
+
+
+
     }
 
     public void clickOnSignUp(){
@@ -148,7 +159,6 @@ public class LoginPage extends LoadableComponent<LoginPage> {
     public void checkErrorMessage(String errorMessage){
         WebElement error = driver.findElement(By.xpath("//p[contains(text()," +"'"+ errorMessage+"'" +")]"));
         wait.forTextPresentInElement(error,errorMessage);
-       Assert.assertEquals(error.getText(), errorMessage,"Error message is not the same");
        Assert.assertEquals("Error message is not the same", error.getText(), errorMessage);
     }
 
