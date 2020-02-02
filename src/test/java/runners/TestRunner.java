@@ -1,7 +1,9 @@
 package runners;
 
 
-import io.cucumber.testng.CucumberOptions;
+import io.cucumber.junit.Cucumber;
+import io.cucumber.junit.CucumberOptions;
+import org.junit.runner.RunWith;
 
 /**
  * Junit runner with cucumber options, use only for production tests suite
@@ -10,7 +12,7 @@ import io.cucumber.testng.CucumberOptions;
  * @version 1.0.0
  * @since 25.01.20 updated n/a (features option updated to execute smoke test feature for production)
  */
-
+@RunWith(Cucumber.class)
 @CucumberOptions(
         features = "src/test/java/features",
         glue = "step_definitions", monochrome = true,
@@ -21,11 +23,11 @@ import io.cucumber.testng.CucumberOptions;
          * desired test (for example @individualTest)NOTE: the same annotation should be inserted in
          * specific feature file
          */
-        //tags = {"@production_smoke_tests"  },
+        tags = {"@jjjj"  },
 
        plugin = {"pretty", "html:report/html/"}
 
 )
 
-public class CucumberRunner {
+public class TestRunner {
 }

@@ -56,4 +56,10 @@ public class MyStepdefs {
     }
 
 
+    @When("I choose to {string} with a user with {string} and {string}")
+    public void iChooseToWithAUserWithAnd(String typeOfAction, String randomStringUser, String randomEmail) {
+        loginPage.registerOrLogin(randomStringUser,randomEmail);
+        loginPage.clickOnSignUp();
+
+    }
 }

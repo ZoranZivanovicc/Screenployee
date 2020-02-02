@@ -1,3 +1,4 @@
+
 Feature: Testing register functionality
   As a qa
   I want to check positive and negative cases regarding with login
