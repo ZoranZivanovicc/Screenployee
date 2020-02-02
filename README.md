@@ -7,14 +7,14 @@ This is an example of testing framework which should support automation tests fo
 # Tools/libraries used:
 1. Java
 2. Selenium Driver
-3. Driver management
+3. WebDriver manager
 4. Cucumber
 5. Junit
 6. Maven
 
 # Setting environment:
 1. Need to have installed chrome browser
-2. Recommendation to have intelliJ IDE
+2. Recommendation is to have intelliJ IDE
 
 # Steps to start:
 1. Clone project into your local 
@@ -23,4 +23,4 @@ This is an example of testing framework which should support automation tests fo
 
 # Execute tests
 To run tests there are junit runners, one is to execute all test (TestRunnerRegression) and to select specific test by annotations use TestRunner. Both runners can be found in: src\test\java\runners.
-After tests completion you can run report to see results: Screenployee\report\index.html
+After tests completion you can see report for results: Screenployee\report\index.html
