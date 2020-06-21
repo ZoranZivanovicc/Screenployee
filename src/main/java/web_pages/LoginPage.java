@@ -81,7 +81,7 @@ public class LoginPage extends LoadableComponent<LoginPage> {
         // TODO
 
     }
-    public void getPage(String url){
+    public void getPage(Stringg url){
         if(url.equalsIgnoreCase("SCREENPLOYEELOGIN")){
             getLoginPage(url);
             //Assert.assertEquals(btnSignIn.getText(),"Sign In","This is not Sign in page please check the value of the page");
